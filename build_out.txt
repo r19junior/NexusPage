@@ -1,0 +1,20 @@
+
+> nexus@0.0.1 build
+> astro build
+
+[2m09:23:34[22m [34m[types][39m Generated [2m40ms[22m
+[2m09:23:34[22m [34m[build][39m output: [34m"static"[39m
+[2m09:23:34[22m [34m[build][39m mode: [34m"static"[39m
+[2m09:23:34[22m [34m[build][39m directory: [34mD:\proyecto de investigacion\nexus\dist\[39m
+[2m09:23:34[22m [34m[build][39m Collecting build info...
+[2m09:23:34[22m [34m[build][39m [32m✓ Completed in 54ms.[39m
+[2m09:23:34[22m [34m[build][39m Building static entrypoints...
+[31m[1m09:23:35[22m [ERROR] [vite][39m [31m✗[39m Build failed in 490ms
+[@tailwindcss/vite:generate:build] Cannot apply unknown utility class `bg-brand-bg`. Are you using CSS modules or similar and missing `@reference`? https://tailwindcss.com/docs/functions-and-directives#reference-directive
+file: D:/proyecto de investigacion/nexus/src/styles/global.css
+  [1mStack trace:[22m
+[2m    at onInvalidCandidate (file:///D:/proyecto%20de%20investigacion/nexus/node_modules/tailwindcss/dist/chunk-L5IEUH3R.mjs:21:1314)
+    at file:///D:/proyecto%20de%20investigacion/nexus/node_modules/tailwindcss/dist/chunk-L5IEUH3R.mjs:21:355
+    at I (file:///D:/proyecto%20de%20investigacion/nexus/node_modules/tailwindcss/dist/chunk-L5IEUH3R.mjs:3:1377)
+    at Gi (file:///D:/proyecto%20de%20investigacion/nexus/node_modules/tailwindcss/dist/chunk-L5IEUH3R.mjs:38:294)
+    at async vf (file:///D:/proyecto%20de%20investigacion/nexus/node_modules/tailwindcss/dist/chunk-L5IEUH3R.mjs:38:1406)[22m

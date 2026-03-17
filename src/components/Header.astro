@@ -1,0 +1,24 @@
+---
+import Logo from './Logo.astro';
+---
+
+<header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-brand-bg/80 border-b border-white/20">
+  <div class="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+    <a href="/" class="hover:opacity-80 transition-opacity" aria-label="Inicio Nexus">
+      <Logo />
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#metodo" class="text-brand-navy font-medium hover:text-brand-teal transition-colors">El Método</a>
+      <a href="#programas" class="text-brand-navy font-medium hover:text-brand-teal transition-colors">Programas</a>
+      <a href="#testimonios" class="text-brand-navy font-medium hover:text-brand-teal transition-colors">Testimonios</a>
+      <a href="#contacto" class="bg-brand-teal text-white px-6 py-2.5 rounded-full font-medium hover:bg-brand-navy transition-all hover-lift">
+        Inicia tu Desarrollo
+      </a>
+    </nav>
+    <button class="md:hidden text-brand-navy p-2 focus:outline-none" aria-label="Abrir menú">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+</header>

@@ -1,0 +1,40 @@
+---
+const steps = [
+  { num: "01", title: "Estructura Cognitiva", desc: "El origen de toda gran exposición. Construimos los cimientos lógicos de tu mensaje para que sea irrefutable y fácil de retener." },
+  { num: "02", title: "Elocuencia Estratégica", desc: "La selección del lenguaje preciso. Convertimos el vocabulario común en palabras de alto impacto para persuadir audiencias." },
+  { num: "03", title: "Dominio Espacial", desc: "Tu cuerpo como la herramienta definitiva. Técnicas avanzadas de posición, movimiento y gesticulación en el escenario." },
+  { num: "04", title: "Fluidez Tecnológica", desc: "Oratoria adaptada a la era digital. Presencia en cámara, uso de recursos multimedia e interacción en formatos híbridos." }
+];
+---
+<section id="metodo" class="py-24 bg-brand-navy text-white relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 h-auto">
+      <div class="max-w-2xl">
+        <h2 class="text-brand-turquoise font-medium tracking-widest text-sm uppercase mb-4">La Metodología</h2>
+        <h3 class="text-4xl md:text-5xl lg:text-6xl font-display font-semibold leading-tight">
+          Diseño arquitectónico de la <br/><span class="text-brand-teal">comunicación.</span>
+        </h3>
+      </div>
+      <p class="text-white/70 max-w-sm text-lg border-l border-brand-teal/30 pl-6 mb-2">
+        No enseñamos a hablar; instruimos sobre cómo estructurar el pensamiento para liderar entornos exigentes.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+      {steps.map((step) => (
+        <div class="group relative">
+          <!-- Top Line -->
+          <div class="h-[1px] w-full bg-white/20 mb-8 relative">
+            <div class="absolute top-0 left-0 h-[2px] w-0 bg-brand-turquoise transition-all duration-700 group-hover:w-full"></div>
+            <div class="absolute -top-1 left-0 w-2 h-2 rounded-full bg-brand-teal"></div>
+          </div>
+          <span class="text-5xl font-display font-light text-white/20 mb-6 block group-hover:text-brand-turquoise transition-colors">{step.num}</span>
+          <h4 class="text-xl font-bold mb-4">{step.title}</h4>
+          <p class="text-white/60 leading-relaxed font-medium">
+            {step.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
