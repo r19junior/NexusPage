@@ -2,23 +2,140 @@
 import Logo from './Logo.astro';
 ---
 
-<header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-brand-bg/80 border-b border-white/20">
+<header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-brand-bg/90 border-b border-white/20">
   <div class="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
-    <a href="/" class="hover:opacity-80 transition-opacity" aria-label="Inicio Nexus">
+    <a href="/" class="hover:opacity-80 transition-opacity relative z-50" aria-label="Inicio Nexus">
       <Logo />
     </a>
+    
+    <!-- Desktop Nav -->
     <nav class="hidden md:flex items-center gap-8">
-      <a href="#metodo" class="text-brand-navy font-medium hover:text-brand-teal transition-colors">El Método</a>
-      <a href="#programas" class="text-brand-navy font-medium hover:text-brand-teal transition-colors">Programas</a>
-      <a href="#testimonios" class="text-brand-navy font-medium hover:text-brand-teal transition-colors">Testimonios</a>
-      <a href="#contacto" class="bg-brand-teal text-white px-6 py-2.5 rounded-full font-medium hover:bg-brand-navy transition-all hover-lift">
+      <a href="/" class="text-brand-navy font-medium hover:text-brand-teal transition-colors">Inicio</a>
+      <a href="/programas" class="text-brand-navy font-medium hover:text-brand-teal transition-colors">Programas</a>
+      <a href="/filosofia" class="text-brand-navy font-medium hover:text-brand-teal transition-colors">Filosofía y Recursos</a>
+      <a href="/#contacto" class="bg-brand-teal text-white px-6 py-2.5 rounded-full font-medium hover:bg-brand-navy transition-all hover-lift">
         Inicia tu Desarrollo
       </a>
     </nav>
-    <button class="md:hidden text-brand-navy p-2 focus:outline-none" aria-label="Abrir menú">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
+
+    <!-- Mobile Menu Toggle Button -->
+    <button id="mobile-menu-btn" class="md:hidden text-brand-navy p-2 focus:outline-none relative z-50" aria-label="Abrir menú" aria-expanded="false">
+      <div class="w-6 h-5 relative flex flex-col justify-between items-center overflow-hidden">
+        <span class="w-full h-[2px] bg-current transform transition-all duration-300 origin-left"></span>
+        <span class="w-full h-[2px] bg-current transform transition-all duration-300"></span>
+        <span class="w-full h-[2px] bg-current transform transition-all duration-300 origin-left"></span>
+      </div>
     </button>
   </div>
+  
+  <!-- Mobile Nav Menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-navy z-40 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+    <!-- Decorative background -->
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/4 right-0 w-[300px] h-[300px] bg-brand-turquoise/10 blur-[80px] rounded-full"></div>
+      <div class="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-brand-teal/10 blur-[80px] rounded-full"></div>
+    </div>
+
+    <nav class="relative z-10 flex flex-col items-center gap-8 w-full px-6">
+      <a href="/" class="mobile-link text-3xl font-display font-bold text-white hover:text-brand-turquoise transition-colors translate-y-8 opacity-0">Inicio</a>
+      <a href="/programas" class="mobile-link text-3xl font-display font-bold text-white hover:text-brand-turquoise transition-colors translate-y-8 opacity-0" style="transition-delay: 100ms">Programas</a>
+      <a href="/filosofia" class="mobile-link text-3xl font-display font-bold text-white hover:text-brand-turquoise transition-colors translate-y-8 opacity-0 text-center" style="transition-delay: 200ms">Filosofía y Recursos</a>
+      
+      <div class="w-full max-w-sm h-px bg-white/20 my-2 translate-y-8 opacity-0 mobile-link" style="transition-delay: 300ms"></div>
+      
+      <a href="/#contacto" class="mobile-link w-full max-w-sm text-center bg-brand-turquoise text-brand-navy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all translate-y-8 opacity-0" style="transition-delay: 400ms">
+        Inicia tu Desarrollo
+      </a>
+    </nav>
+  </div>
 </header>
+
+<script>
+  function setupMobileMenu() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const links = document.querySelectorAll('.mobile-link');
+    const spans = btn?.querySelectorAll('span');
+    
+    if (!btn || !menu) return;
+
+    let isOpen = false;
+
+    function toggleMenu() {
+      if (!btn || !menu) return;
+      isOpen = !isOpen;
+      
+      // Toggle button aria state
+      btn.setAttribute('aria-expanded', isOpen.toString());
+      
+      // Stop body scroll
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      
+      if (isOpen) {
+        // Show menu
+        menu.classList.remove('opacity-0', 'pointer-events-none');
+        menu.classList.add('opacity-100', 'pointer-events-auto');
+        
+        // Animate links in
+        links.forEach((link) => {
+          link.classList.remove('translate-y-8', 'opacity-0');
+          link.classList.add('translate-y-0', 'opacity-100');
+        });
+        
+        // Animate hamburger to X (assuming text-white to contrast against dark menu bg)
+        btn.classList.add('text-white');
+        btn.classList.remove('text-brand-navy');
+        if (spans && spans.length === 3) {
+          spans[0].style.transform = 'rotate(45deg)';
+          spans[1].style.opacity = '0';
+          spans[1].style.transform = 'translateX(20px)';
+          spans[2].style.transform = 'rotate(-45deg)';
+        }
+      } else {
+        // Hide menu
+        menu.classList.remove('opacity-100', 'pointer-events-auto');
+        menu.classList.add('opacity-0', 'pointer-events-none');
+        
+        // Reset links
+        links.forEach((link) => {
+          link.classList.remove('translate-y-0', 'opacity-100');
+          link.classList.add('translate-y-8', 'opacity-0');
+        });
+        
+        // Animate X to hamburger
+        btn.classList.remove('text-white');
+        btn.classList.add('text-brand-navy');
+        if (spans && spans.length === 3) {
+          spans[0].style.transform = 'rotate(0)';
+          spans[1].style.opacity = '1';
+          spans[1].style.transform = 'translateX(0)';
+          spans[2].style.transform = 'rotate(0)';
+        }
+      }
+    }
+
+    // Toggle on button click
+    btn.addEventListener('click', toggleMenu);
+
+    // Close on link click
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        if (isOpen) toggleMenu();
+      });
+    });
+  }
+
+  // Setup on initial load
+  setupMobileMenu();
+  
+  // Setup on Astro view transitions (if employed later)
+  document.addEventListener('astro:page-load', setupMobileMenu);
+</script>
+
+<style>
+  .mobile-link {
+    transition-property: transform, opacity, color, background-color;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style>

@@ -1,0 +1,44 @@
+﻿[2m08:06:48[22m [34m[types][39m Generated [2m67ms[22m
+[2m08:06:48[22m [34m[check][39m Getting diagnostics for Astro files in D:\proyecto de investigacion\nexus...
+[96msrc/components/Header.astro[0m:[93m106[0m:[93m9[0m - [91merror[0m[90m ts(18047): [0m'btn' is possibly 'null'.
+
+[7m106[0m         btn.classList.add('text-brand-navy');
+[7m   [0m [91m        ~~~[0m
+[96msrc/components/Header.astro[0m:[93m105[0m:[93m9[0m - [91merror[0m[90m ts(18047): [0m'btn' is possibly 'null'.
+
+[7m105[0m         btn.classList.remove('text-white');
+[7m   [0m [91m        ~~~[0m
+[96msrc/components/Header.astro[0m:[93m96[0m:[93m9[0m - [91merror[0m[90m ts(18047): [0m'menu' is possibly 'null'.
+
+[7m96[0m         menu.classList.add('opacity-0', 'pointer-events-none');
+[7m  [0m [91m        ~~~~[0m
+[96msrc/components/Header.astro[0m:[93m95[0m:[93m9[0m - [91merror[0m[90m ts(18047): [0m'menu' is possibly 'null'.
+
+[7m95[0m         menu.classList.remove('opacity-100', 'pointer-events-auto');
+[7m  [0m [91m        ~~~~[0m
+[96msrc/components/Header.astro[0m:[93m86[0m:[93m9[0m - [91merror[0m[90m ts(18047): [0m'btn' is possibly 'null'.
+
+[7m86[0m         btn.classList.remove('text-brand-navy');
+[7m  [0m [91m        ~~~[0m
+[96msrc/components/Header.astro[0m:[93m85[0m:[93m9[0m - [91merror[0m[90m ts(18047): [0m'btn' is possibly 'null'.
+
+[7m85[0m         btn.classList.add('text-white');
+[7m  [0m [91m        ~~~[0m
+[96msrc/components/Header.astro[0m:[93m76[0m:[93m9[0m - [91merror[0m[90m ts(18047): [0m'menu' is possibly 'null'.
+
+[7m76[0m         menu.classList.add('opacity-100', 'pointer-events-auto');
+[7m  [0m [91m        ~~~~[0m
+[96msrc/components/Header.astro[0m:[93m75[0m:[93m9[0m - [91merror[0m[90m ts(18047): [0m'menu' is possibly 'null'.
+
+[7m75[0m         menu.classList.remove('opacity-0', 'pointer-events-none');
+[7m  [0m [91m        ~~~~[0m
+[96msrc/components/Header.astro[0m:[93m68[0m:[93m7[0m - [91merror[0m[90m ts(18047): [0m'btn' is possibly 'null'.
+
+[7m68[0m       btn.setAttribute('aria-expanded', isOpen.toString());
+[7m  [0m [91m      ~~~[0m
+
+Result (12 files): 
+- 9 errors
+- 0 warnings
+- 0 hints
+

@@ -1,0 +1,181 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const programs = [
+  {
+    area: "Área de Oratoria y Liderazgo",
+    description: "Formamos la capacidad de persuasión y el dominio escénico desde temprana edad hasta niveles ejecutivos.",
+    color: "brand-teal",
+    bgClass: "bg-brand-bg",
+    textClass: "text-brand-navy",
+    courses: [
+      {
+        title: "Oratoria y Liderazgo Infantil",
+        slogan: "Los niños no son el futuro, son el presente... y su voz merece ser escuchada hoy.",
+        topics: "Expresión verbal, confianza personal, narración de historias, trabajo en equipo, presentaciones y juegos de comunicación.",
+        duration: "3 módulos - 8 clases por módulo",
+        icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`
+      },
+      {
+        title: "Oratoria y Liderazgo Juvenil",
+        slogan: "Los jóvenes no esperan el futuro, comienzan a liderarlo hoy.",
+        topics: "Técnicas de oratoria, argumentación y debate, manejo del miedo escénico, pensamiento crítico y exposiciones.",
+        duration: "3 módulos - 8 clases por módulo",
+        icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>`
+      },
+      {
+        title: "Oratoria y Liderazgo Profesional",
+        slogan: "El liderazgo se construye hoy, con ideas claras y una voz segura.",
+        topics: "Comunicación estratégica, estructura de discursos, manejo de audiencias, toma de decisiones y presentaciones efectivas.",
+        duration: "3 módulos - 8 clases por módulo",
+        icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>`
+      }
+    ]
+  },
+  {
+    area: "Área Académica y Universitaria",
+    description: "Apoyo estructurado para alcanzar la excelencia desde la escuela hasta la vida universitaria.",
+    color: "brand-turquoise",
+    bgClass: "bg-brand-navy",
+    textClass: "text-white",
+    courses: [
+      {
+        title: "Reforzamiento Académico Primaria",
+        slogan: "Aprender hoy para avanzar con confianza.",
+        topics: "Comprensión lectora, matemática básica, hábitos de estudio y apoyo en tareas escolares.",
+        duration: "Continuo",
+        icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>`
+      },
+      {
+        title: "Reforzamiento Académico Secundaria",
+        slogan: "Fortaleciendo conocimientos para nuevos desafíos.",
+        topics: "Refuerzo en cursos clave, técnicas de estudio, comprensión y análisis, y preparación para evaluaciones.",
+        duration: "Continuo",
+        icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>`
+      },
+      {
+        title: "Acompañamiento Universitario",
+        slogan: "Crecer profesionalmente empieza con una buena guía.",
+        topics: "Organización del estudio, técnicas de investigación, presentación de trabajos y planificación académica.",
+        duration: "Flexible",
+        icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>`
+      }
+    ]
+  },
+  {
+    area: "Idiomas y Comunicación Inclusiva",
+    description: "Cruzando fronteras mediante el lenguaje global y el verdadero sentido de la inclusión.",
+    color: "brand-navy",
+    bgClass: "bg-white",
+    textClass: "text-brand-navy",
+    courses: [
+      {
+        title: "Inglés Conversacional",
+        slogan: "Hablar inglés abre puertas al mundo.",
+        topics: "Vocabulario práctico, pronunciación, conversaciones cotidianas y expresión oral.",
+        duration: "Niveles continuos",
+        icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>`
+      },
+      {
+        title: "Francés Conversacional",
+        slogan: "Una nueva lengua, nuevas oportunidades.",
+        topics: "Pronunciación básica, vocabulario esencial, expresiones cotidianas y conversación básica.",
+        duration: "Niveles continuos",
+        icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>`
+      },
+      {
+        title: "Lengua de Señas",
+        slogan: "Comunicar también es incluir.",
+        topics: "Introducción a la lengua de señas, alfabeto manual, expresiones básicas y cultura e inclusión social.",
+        duration: "Módulos progresivos",
+        icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path></svg>`
+      }
+    ]
+  },
+  {
+    area: "Bienestar y Salud",
+    description: "Desarrollo corporal y energético, base fundamental para el bienestar mental y físico.",
+    color: "brand-teal",
+    bgClass: "bg-brand-bg",
+    textClass: "text-brand-navy",
+    courses: [
+      {
+        title: "Zumba Fitness & Energía",
+        slogan: "La energía se activa hoy, muévete con ritmo y confianza.",
+        topics: "Activación física, ritmos latinos (salsa, merengue, reggaetón), coordinación corporal y rutinas dinámicas.",
+        duration: "Sesiones semanales",
+        icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`
+      }
+    ]
+  }
+];
+---
+
+<Layout title="Programas | NEXUS Oratoria">
+  <Header />
+
+  <main class="pt-24 pb-0">
+    <!-- Hero Secundario -->
+    <header class="bg-brand-navy text-white py-20 relative overflow-hidden">
+      <div class="absolute inset-0 z-0 opacity-20 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-turquoise blur-3xl mix-blend-screen opacity-30 transform translate-x-1/2 -translate-y-1/2"></div>
+      </div>
+      <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+        <h1 class="text-5xl md:text-6xl font-bold font-display mb-6">Nuestros <span class="text-brand-turquoise">Programas</span></h1>
+        <p class="text-xl text-white/70 max-w-2xl mx-auto font-medium">Desde oratoria ejecutiva hasta idiomas y bienestar. Elige el camino para potenciar tus habilidades al máximo.</p>
+      </div>
+    </header>
+
+    <!-- Áreas (Iteración) -->
+    {programs.map((area, index) => (
+      <section class={`py-24 relative ${area.bgClass} ${area.textClass} border-b border-brand-teal/10`}>
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="mb-16 md:mb-20">
+            <span class={`inline-block py-1 px-3 rounded-full text-xs font-bold tracking-widest uppercase mb-4 border border-${area.color}/30 text-${area.color}`}>Área 0{index + 1}</span>
+            <h2 class="text-4xl md:text-5xl font-display font-semibold mb-6">{area.area}</h2>
+            <p class={`text-lg opacity-80 max-w-2xl ${area.bgClass === 'bg-brand-navy' ? 'text-brand-turquoise' : 'text-brand-teal'}`}>{area.description}</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {area.courses.map(course => (
+              <div class={`glass-panel p-8 group transition-all duration-300 hover:-translate-y-2 border border-${area.color}/20 flex flex-col h-full bg-white/5 backdrop-blur-xl ${area.bgClass === 'bg-brand-navy' ? 'hover:bg-white/10' : 'hover:bg-white'}`}>
+                <div class={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 bg-${area.color}/10 text-${area.color}`}>
+                  <Fragment set:html={course.icon} />
+                </div>
+                <h3 class="text-2xl font-bold font-display mb-3">{course.title}</h3>
+                <p class={`italic text-sm mb-6 ${area.bgClass === 'bg-brand-navy' ? 'text-brand-turquoise/80' : 'text-brand-teal/80'} border-l-2 border-${area.color}/30 pl-3 leading-relaxed`}>
+                  "{course.slogan}"
+                </p>
+                <div class="space-y-4 flex-grow mb-8">
+                  <div>
+                    <strong class="block text-xs uppercase tracking-wider opacity-60 mb-1">Temario Cíclico</strong>
+                    <p class="text-sm opacity-90 leading-relaxed">{course.topics}</p>
+                  </div>
+                </div>
+                <div class="pt-4 border-t border-current/10 mt-auto flex justify-between items-center">
+                  <span class="text-sm font-semibold opacity-70"><i class="opacity-50 mr-1">Duración:</i> {course.duration}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- CTA Final -->
+    <section class="py-24 relative bg-brand-bg text-center">
+      <div class="max-w-3xl mx-auto px-6 relative z-10">
+        <h2 class="text-4xl font-display font-bold text-brand-navy mb-6">¿No sabes qué programa elegir?</h2>
+        <p class="text-xl text-brand-navy/70 mb-10">Contáctanos y nuestro equipo académico te brindará una asesoría personalizada para orientarte hacia el programa ideal para ti o tu familia.</p>
+        <a href="/#contacto" class="inline-flex items-center gap-2 bg-brand-teal text-white px-8 py-4 rounded-full font-semibold hover:bg-brand-navy transition-colors hover-lift shadow-lg">
+          Solicitar Asesoría
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Content structure from the user request
+const leadershipPoints = [
+  "El liderazgo verdadero nace de los valores, no del cargo.",
+  "Ser líder es servir con empatía, incluso cuando nadie está mirando.",
+  "Ser líder es ayudar, acompañar y respetar a quienes más lo necesitan."
+];
+
+const manifesto = [
+  { type: "phrase", class: "col-span-1 md:col-span-2 md:row-span-2 bg-brand-navy text-white", title: "LA MEJOR MANERA DE PREDICIR EL FUTURO ES CREARLO.", body: "" },
+  { type: "banner", class: "col-span-1 bg-brand-teal text-white", title: "ORATORIA Y LIDERAZGO: COMUNICACIÓN INTEGRAL", body: "Oratoria más allá de las palabras." },
+  { type: "post-it", class: "col-span-1 bg-white border border-brand-teal/20 text-brand-navy", title: "CONEXIÓN VISUAL", body: "Mira a tu audiencia por bloques de 3-5 segundos. Esto genera cercanía, liderazgo y control del espacio." },
+  { type: "post-it", class: "col-span-1 bg-brand-bg text-brand-navy border border-brand-teal/10", title: "GESTIÓN DEL SILENCIO", body: "El silencio no es un error: es una herramienta. Úsalo para reforzar ideas complejas o emotivas." },
+  { type: "date", class: "col-span-1 bg-brand-turquoise/20 text-brand-navy", title: "14 DE FEBRERO", body: "San Valentín es recordar que educar con propósito... es amar con grandeza." },
+  { type: "banner", class: "col-span-1 md:col-span-2 bg-white border border-brand-navy/10 text-brand-navy", title: "HABLAR EN PÚBLICO TAMBIÉN ES: LENGUAJE CORPORAL", body: "Oratoria más allá de las palabras." },
+  { type: "post-it", class: "col-span-1 bg-brand-bg text-brand-navy border border-brand-teal/10", title: "COHERENCIA MENSAJE-IMAGEN", body: "Lo que dices, cómo lo dices y cómo te ves deben contar la misma historia." },
+  { type: "post-it", class: "col-span-1 bg-brand-navy text-brand-turquoise", title: "EXPRESIÓN FACIAL CONSCIENTE", body: "El rostro debe acompañar el mensaje. Entrena tus expresiones frente al espejo para que emociones y palabras estén alineadas." },
+  { type: "post-it", class: "col-span-1 bg-white border border-brand-teal/20 text-brand-navy", title: "PRESENCIA Y POSTURA", body: "Espalda recta, hombros abiertos y mentón neutro. La postura comunica seguridad antes de que hables." },
+  { type: "info", class: "col-span-1 md:col-span-2 bg-brand-navy text-white", title: "TU VOZ TIENE PODER, APRENDE A USARLA", points: ["Desarrollo de habilidades de comunicación oral", "Técnicas de expresión corporal y manejo de la voz", "Formación en liderazgo y trabajo en equipo", "Pensamiento crítico y argumentación"], footer: "FORMAMOS HOY LAS HABILIDADES QUE DEFINIRÁN EL MAÑANA." },
+  { type: "post-it", class: "col-span-1 bg-brand-turquoise text-brand-navy", title: "GESTO DIRIGIDO", body: "Todo gesto debe tener intención. Evita movimientos automáticos y usa las manos solo para reforzar ideas clave." },
+  { type: "post-it", class: "col-span-1 bg-brand-bg text-brand-navy border border-brand-teal/10", title: "RITMO DISCURSIVO", body: "Alterna frases cortas y largas. El ritmo evita monotonía y mantiene atención." },
+  { type: "banner", class: "col-span-1 md:col-span-2 bg-brand-teal/10 border border-brand-teal/30 text-brand-navy", title: "APERTURA CORPORAL", body: "Tip de Oratoria NEXUS. Oratoria más allá de las palabras." },
+  { type: "post-it", class: "col-span-1 bg-white border border-brand-teal/20 text-brand-navy", title: "LA PRESENCIA SE ANUNCIA", body: "Inicia con el cuerpo abierto: hombros atrás, manos visibles. El cuerpo debe 'decir' seguridad antes de hablar." },
+  { type: "post-it", class: "col-span-1 bg-brand-bg text-brand-navy border border-brand-teal/10", title: "ENFOQUE VISUAL", body: "Dirige la mirada al decir ideas clave. La audiencia sigue tus ojos." }
+];
+---
+
+<Layout title="Filosofía y Recursos | NEXUS Oratoria">
+  <Header />
+
+  <main class="pt-24 pb-0 bg-brand-bg relative overflow-hidden">
+    <!-- Header Decorativo -->
+    <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-teal/5 rounded-full blur-[100px] pointer-events-none transform translate-x-1/3 -translate-y-1/3"></div>
+    <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-turquoise/10 rounded-full blur-[80px] pointer-events-none transform -translate-x-1/4 translate-y-1/4"></div>
+
+    <!-- Sección de Liderazgo (Fila 4) -->
+    <section class="py-24 relative z-10 w-full">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 class="text-brand-teal font-medium tracking-widest text-sm uppercase mb-4">La Esencia NEXUS</h2>
+            <h1 class="text-5xl md:text-6xl font-display font-bold text-brand-navy leading-[1.1] mb-6">
+              ¿Qué es ser <span class="text-gradient">Líder</span>?
+            </h1>
+            <p class="text-2xl text-brand-navy/70 border-l-4 border-brand-turquoise pl-6 italic">
+              "Ser líder no es solo mandar."
+            </p>
+          </div>
+          
+          <div class="space-y-6">
+            {leadershipPoints.map((point, i) => (
+              <div class="glass-panel p-6 md:p-8 flex items-start gap-4 hover:-translate-x-2 transition-transform duration-300">
+                <span class="text-brand-teal font-display font-bold text-2xl opacity-50 block leading-none select-none">0{i+1}</span>
+                <p class="text-lg md:text-xl font-medium text-brand-navy leading-relaxed">{point}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Grid - Recursos y Tips -->
+    <section class="py-24 relative z-10 w-full border-t border-brand-navy/5 bg-white/30 backdrop-blur-3xl">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-display font-bold text-brand-navy mb-4">Manifiesto de Comunicación</h2>
+          <p class="text-brand-navy/70 text-lg max-w-2xl mx-auto">Principios, técnicas y reflexiones que definen a un orador extraordinario. Explora la esencia de la oratoria efectiva.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[250px]">
+          {manifesto.map((item) => (
+            <div class={`rounded-3xl p-8 flex flex-col justify-center transition-all duration-500 hover:shadow-xl hover:scale-[1.02] ${item.class}`}>
+              
+              {item.type === 'phrase' && (
+                <div class="h-full flex flex-col justify-center">
+                  <h3 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight uppercase tracking-tight">
+                    {item.title}
+                  </h3>
+                </div>
+              )}
+
+              {item.type === 'banner' && (
+                <div class="flex flex-col h-full justify-between">
+                  <h3 class="text-2xl font-display font-bold leading-snug">{item.title}</h3>
+                  <div class="text-sm uppercase tracking-widest opacity-80 mt-4 border-t border-current/20 pt-4 font-semibold">
+                    {item.body}
+                  </div>
+                </div>
+              )}
+
+              {item.type === 'post-it' && (
+                <div class="flex flex-col h-full">
+                  <div class="flex items-center gap-2 mb-4">
+                    <span class="w-2 h-2 rounded-full bg-brand-turquoise"></span>
+                    <h4 class="text-sm font-bold tracking-wider uppercase opacity-80">{item.title}</h4>
+                  </div>
+                  <p class="text-base font-medium leading-relaxed opacity-90">{item.body}</p>
+                </div>
+              )}
+
+              {item.type === 'date' && (
+                <div class="flex flex-col h-full justify-center text-center">
+                  <h3 class="text-3xl font-display font-bold mb-4 bg-brand-teal text-white w-max mx-auto px-4 py-1 -skew-x-12">{item.title}</h3>
+                  <p class="font-medium opacity-80 italic">"{item.body}"</p>
+                </div>
+              )}
+
+              {item.type === 'info' && (
+                <div class="flex flex-col h-full justify-between">
+                  <h3 class="text-2xl md:text-3xl font-display font-bold text-brand-turquoise mb-6">{item.title}</h3>
+                  <ul class="space-y-2 mb-6 flex-grow">
+                    {item.points?.map(p => (
+                      <li class="flex items-start gap-2 text-sm md:text-base opacity-90">
+                        <svg class="w-5 h-5 text-brand-turquoise shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                  <p class="text-xs uppercase tracking-widest border-t border-white/20 pt-4 opacity-60 font-medium">
+                    {item.footer}
+                  </p>
+                </div>
+              )}
+
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+  
+  <Footer />
+</Layout>
