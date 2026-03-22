@@ -19,11 +19,11 @@ import Logo from './Logo.astro';
     </nav>
 
     <!-- Mobile Menu Toggle Button -->
-    <button id="mobile-menu-btn" class="md:hidden text-brand-navy p-2 focus:outline-none relative z-50" aria-label="Abrir menú" aria-expanded="false">
-      <div class="w-6 h-5 relative flex flex-col justify-between items-center overflow-hidden">
-        <span class="w-full h-[2px] bg-current transform transition-all duration-300 origin-left"></span>
-        <span class="w-full h-[2px] bg-current transform transition-all duration-300"></span>
-        <span class="w-full h-[2px] bg-current transform transition-all duration-300 origin-left"></span>
+    <button id="mobile-menu-btn" class="md:hidden text-brand-navy w-12 h-12 flex items-center justify-center focus:outline-none relative z-50 rounded-full hover:bg-black/5 transition-colors" aria-label="Abrir menú" aria-expanded="false">
+      <div class="relative w-6 h-[18px]">
+        <span class="absolute top-0 left-0 w-full h-[2px] bg-current transform transition-all duration-300 origin-center rounded-full"></span>
+        <span class="absolute top-1/2 -translate-y-1/2 left-0 w-full h-[2px] bg-current transform transition-all duration-300 origin-center rounded-full"></span>
+        <span class="absolute bottom-0 left-0 w-full h-[2px] bg-current transform transition-all duration-300 origin-center rounded-full"></span>
       </div>
     </button>
   </div>
@@ -76,25 +76,36 @@ import Logo from './Logo.astro';
         menu.classList.remove('opacity-0', 'pointer-events-none');
         menu.classList.add('opacity-100', 'pointer-events-auto');
         
+        // Add class to header for logo color change
+        const header = document.querySelector('header');
+        if (header) header.classList.add('menu-open');
+        
         // Animate links in
         links.forEach((link) => {
           link.classList.remove('translate-y-8', 'opacity-0');
           link.classList.add('translate-y-0', 'opacity-100');
         });
         
-        // Animate hamburger to X (assuming text-white to contrast against dark menu bg)
+        // Animate hamburger to X
         btn.classList.add('text-white');
         btn.classList.remove('text-brand-navy');
+        btn.classList.remove('hover:bg-black/5');
+        btn.classList.add('hover:bg-white/10');
+        
         if (spans && spans.length === 3) {
-          spans[0].style.transform = 'rotate(45deg)';
+          spans[0].style.transform = 'translateY(8px) rotate(45deg)';
           spans[1].style.opacity = '0';
-          spans[1].style.transform = 'translateX(20px)';
-          spans[2].style.transform = 'rotate(-45deg)';
+          spans[1].style.transform = 'translateY(-50%) scaleX(0)';
+          spans[2].style.transform = 'translateY(-8px) rotate(-45deg)';
         }
       } else {
         // Hide menu
         menu.classList.remove('opacity-100', 'pointer-events-auto');
         menu.classList.add('opacity-0', 'pointer-events-none');
+        
+        // Remove class from header 
+        const header = document.querySelector('header');
+        if (header) header.classList.remove('menu-open');
         
         // Reset links
         links.forEach((link) => {
@@ -105,11 +116,14 @@ import Logo from './Logo.astro';
         // Animate X to hamburger
         btn.classList.remove('text-white');
         btn.classList.add('text-brand-navy');
+        btn.classList.add('hover:bg-black/5');
+        btn.classList.remove('hover:bg-white/10');
+        
         if (spans && spans.length === 3) {
-          spans[0].style.transform = 'rotate(0)';
+          spans[0].style.transform = 'translateY(0) rotate(0)';
           spans[1].style.opacity = '1';
-          spans[1].style.transform = 'translateX(0)';
-          spans[2].style.transform = 'rotate(0)';
+          spans[1].style.transform = 'translateY(-50%) scaleX(1)';
+          spans[2].style.transform = 'translateY(0) rotate(0)';
         }
       }
     }
@@ -132,10 +146,25 @@ import Logo from './Logo.astro';
   document.addEventListener('astro:page-load', setupMobileMenu);
 </script>
 
-<style>
+<style is:global>
   .mobile-link {
     transition-property: transform, opacity, color, background-color;
     transition-duration: 500ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  header.menu-open svg path, header.menu-open svg circle {
+    transition: all 0.3s ease;
+  }
+  header.menu-open .stroke-brand-navy {
+    stroke: white !important;
+  }
+  header.menu-open .stroke-brand-teal {
+    stroke: #40E0D0 !important; /* brand-turquoise approx */
+  }
+  header.menu-open {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    backdrop-filter: none !important;
   }
 </style>
